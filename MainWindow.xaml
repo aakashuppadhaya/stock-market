@@ -1,0 +1,53 @@
+﻿<UserControl 
+             x:Class="Wpf.CartesianChart.Financial.OhclExample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Wpf.CartesianChart.Financial"
+             xmlns:financial="clr-namespace:Wpf.CartesianChart.Financial"
+             mc:Ignorable="d" 
+             d:DesignHeight="711" d:DesignWidth="1293" d:DataContext="{d:DesignInstance financial:OhclExample }" DataContext="{Binding}" Foreground="#B045EB12">
+     
+        <Grid Width="899" Height="457" OpacityMask="#FFE52020">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="593*" />
+            <ColumnDefinition Width="35*" />
+            <ColumnDefinition Width="601*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="2" Click="UpdateAllOnClick" Height="22" VerticalAlignment="Top" Margin="88,260,75,0" Content="Click To See Graph" Foreground="#FFE56329" BorderBrush="#FFE21A1A"></Button>
+            <lvc:CartesianChart Grid.Row="2" Series="{Binding SeriesCollection}" Margin="45,12,31,99" Grid.Column="2">
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Labels="{Binding Labels}"/>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        <ComboBox Grid.Row="2" Height="22" HorizontalAlignment="Left" Margin="49,0,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" SelectedValuePath="Content" SelectionChanged="comboBox1_SelectionChanged" DataContext="{Binding}" ItemsSource="{Binding}" Text="Select The Company" IsEditable="True" IsReadOnly="True" BorderBrush="#FFFA0000">
+            
+            <ComboBoxItem Content="Oraclesheet" />
+            <ComboBoxItem Content="Tatasheet" />
+            <ComboBoxItem Content="Reliance" />
+            <ComboBoxItem Content="Hdfc" />
+            
+        </ComboBox>
+        <extToolkit:WatermarkTextBox Watermark="Enter the file name" Grid.Row="2" Height="22" HorizontalAlignment="Right" Margin="0,0,38,0"  Name="textBox1" VerticalAlignment="Top" Width="120" BorderBrush="#FFEF1F1F" />
+      
+        <Button Content="Get Data" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="180,56,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" Foreground="#FFE56932" BorderBrush="#FFC72E2E" />
+        <Button Content="Click To Predict" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="167,125,0,0" Name="button2" VerticalAlignment="Top" Width="101" Click="button2_Click" Foreground="#FFEB682D" BorderBrush="#FFE52929" />
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="35,188,0,0" Name="textBox2" VerticalAlignment="Top" Width="375" BorderBrush="#FFE22323" />
+           
+      
+        <Button Content="Reset" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="180,335,0,0" Name="button3" VerticalAlignment="Top" Width="75" Click="button3_Click" Foreground="#FFE5652C" BorderBrush="#FFE52323" />
+        <Label Content="STOCK MARKET ANALYSIS AND PREDICTION APPLICATION" Height="52" HorizontalAlignment="Left" Margin="88,-81,0,0" Name="label1" VerticalAlignment="Top" Width="824" FontSize="26" FontWeight="Bold" Grid.ColumnSpan="3" Foreground="#FFF85E19" />
+        <Label Content="OHLC Graph " Grid.Row="2" Height="35" HorizontalAlignment="Left" Margin="166,364,0,0" Name="label2" VerticalAlignment="Top" Width="356" FontSize="20" FontWeight="Bold" Grid.Column="2" />
+    </Grid>
+    
+</UserControl>
+
+
